@@ -1,15 +1,18 @@
-document.getElementById('btn').addEventListener('click',draw);
+//trigger the button
+document.getElementById('btn').addEventListener('click',createSquares);
 
-function draw(){
-  var canvas = document.getElementById('canvas');
-  if (canvas.getContext) {
-    var ctx = canvas.getContext('2d');
-    ctx.fillRect(25, 25, 100, 100);
-    ctx.clearRect(45, 45, 60, 60);
-    ctx.strokeRect(50, 50, 50, 50);
-  }
+function createSquares(){
+  //get the number
   var n = document.getElementById('number').value;
-  for (i = 1; i<=n; i++){
+  console.log(n);
+  document.getElementsByClassName('container')[0].innerHTML='';
+  var txt = document.getElementById('number').value;
 
+  //draw squares
+  for (i = 1; i<=n; i++){
+    console.log(2);
+    let div=document.createElement('div');
+    div.className='rect';
+    document.getElementsByClassName('container')[0].appendChild(div);
   }
 }

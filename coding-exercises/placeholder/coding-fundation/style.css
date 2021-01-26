@@ -1,8 +1,26 @@
+body{
+  background-color: black;
+}
+.rect{
+  position: relative;
+  top: 50%;
+  background-color: white;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  float: left;
+}
+.container{
+  position: absolute;
+  left: 50px;
+  right: 50px;
+  top: 30%;
+}
 .center{
   margin: 0;
   position: absolute;
-  top: 20%;
-  left:60%;
+  top: 25%;
+  left:40%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
@@ -10,7 +28,7 @@
   margin: 0;
   position: absolute;
   top: 20%;
-  left:30%;
+  left:40%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
