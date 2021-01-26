@@ -3,7 +3,7 @@ document.getElementById('btn').addEventListener('click',createSquares);
 
 function createSquares(){
   //get the number
-  var n = document.getElementById('txt').value;
+  var n = document.getElementById('n').value;
   document.getElementsByClassName('container')[0].innerHTML='';
 
   //draw squares

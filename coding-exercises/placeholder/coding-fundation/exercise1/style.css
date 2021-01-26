@@ -17,12 +17,11 @@ body{
   position: absolute;
   left: 50px;
   right: 50px;
-  top: 30%;
+  top: 20%;
 }
 /* make the button and textbox in the center */
 .center{
   position: absolute;
-  top:25%;
+  top:15%;
   left: 40%;
-  border-radius: 5px;
 }
