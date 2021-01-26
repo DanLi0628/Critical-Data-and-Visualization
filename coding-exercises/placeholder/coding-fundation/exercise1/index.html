@@ -5,15 +5,17 @@
   <meta id = 'canvas' name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Exercise1</title>
-  <!-- enter a number -->
-  <input type="text" id='number' name='number' onclick="this.value">
+  <div class='center'>
+    <div>
+      <!-- enter a number -->
+      <input type="number" id='txt' name='txt' onclick="this.value">
+      <!-- create a button -->
+      <button id = "btn" >Create Squares</button>
+    </div>
+  </div>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- create a button -->
-  <div class='center'>
-    <button id = "btn" >Create Squares</button>
-  </div>
   <!-- space to contain squares -->
   <div class="container"></div>
   <script src="script.js" charset="utf-8"></script>

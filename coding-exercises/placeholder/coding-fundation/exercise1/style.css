@@ -1,5 +1,6 @@
 body{
   background-color: black;
+
 }
 /* create rect */
 .rect{
@@ -20,18 +21,8 @@ body{
 }
 /* make the button and textbox in the center */
 .center{
-  margin: 0;
   position: absolute;
-  top: 25%;
-  left:40%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-#number{
-  margin: 0;
-  position: absolute;
-  top: 20%;
-  left:40%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  top:25%;
+  left: 40%;
+  border-radius: 5px;
 }
