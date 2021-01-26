@@ -1,6 +1,7 @@
 body{
   background-color: black;
 }
+/* create rect */
 .rect{
   position: relative;
   top: 50%;
@@ -10,12 +11,14 @@ body{
   margin: 5px;
   float: left;
 }
+/* space to contain rect */
 .container{
   position: absolute;
   left: 50px;
   right: 50px;
   top: 30%;
 }
+/* make the button and textbox in the center */
 .center{
   margin: 0;
   position: absolute;
