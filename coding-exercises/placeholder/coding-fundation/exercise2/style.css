@@ -1,0 +1,22 @@
+body{
+  background-color: #FAE7C5;
+}
+.center{
+  position: absolute;
+  left: 40%;
+  top: -20px;
+}
+.p{
+  font-family:fantasy;
+  font-size: 40px;
+  font-weight: bold;
+}
+.bar{
+  height: 30px;
+  background-color: #FEBD84;
+  margin-bottom: 10px;
+}
+.container{
+  position: absolute;
+  top: 10%;
+}
