@@ -3,20 +3,30 @@ body{
 }
 .center{
   position: absolute;
-  left: 40%;
+  left:530px;
   top: -20px;
 }
-.p{
+#container{
+  position: absolute;
+  left: 70px;
+  top: 20%;
+}
+.film{
+  font-family:fantasy;
+  font-size: 23px;
+  font-weight: bold;
+  padding-top: 5px;
+}
+h4{
   font-family:fantasy;
   font-size: 40px;
   font-weight: bold;
 }
 .bar{
-  height: 30px;
+  height: 40px;
+  border-color: #E9A971;
+  border-style: solid;
   background-color: #FEBD84;
-  margin-bottom: 10px;
-}
-.container{
-  position: absolute;
-  top: 10%;
+  padding-left: 10px;
+  margin-bottom: 50px;
 }

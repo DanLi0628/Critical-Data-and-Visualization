@@ -3,11 +3,11 @@ let data = [
         "timestamp": "2021-01-27T11:52:58.316Z",
         "emailAddress": "tz1422@nyu.edu",
         "score": 0,
-        "tenet": 4,
-        "frozen": 4,
-        "soul": 5,
-        "avengers": 3,
-        "idiots": 4
+        "Tenet": 4,
+        "Frozen": 4,
+        "Soul": 5,
+        "Avengers": 3,
+        "3 Idiots": 4
     },
     {
         "timestamp": "2021-01-27T11:53:32.095Z",

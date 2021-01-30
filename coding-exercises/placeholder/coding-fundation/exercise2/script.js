@@ -55,11 +55,19 @@ function averageData(data){
 
 var transformedData = averageData(data);
 console.log(transformedData);
+container = document.getElementById('container');
 
-for (var i = 0; i < transformedData.length; i++){
+for (var i = 1; i < transformedData.length; i++){
   var bar = document.createElement('div');
   bar.className='bar';
   var barWidth = transformedData[i].average;
-  bar.style.width = (barWidth*100)+"px";
-  document.getElementsByClassName('container')[0].appendChild(bar);
+  bar.style.width = (barWidth*150)+"px";
+
+  var film = document.createElement('div');
+  film.className = 'film';
+  film.innerHTML = transformedData[i].name;
+
+  container.appendChild(bar);
+  bar.appendChild(film);
+
 }
