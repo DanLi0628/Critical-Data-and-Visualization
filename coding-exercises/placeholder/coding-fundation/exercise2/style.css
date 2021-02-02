@@ -1,15 +1,17 @@
 body{
-  background-color: #FAE7C5;
+  background-color: black;
+  /* background-image:url("background.png");
+  background-repeat: no-repeat;
+  background-size:cover; */
 }
 .center{
-  position: absolute;
-  left:530px;
-  top: -20px;
+  position: relative;
+  left:40%;
 }
 #container{
-  position: absolute;
+  position: relative;
   left: 70px;
-  top: 20%;
+  top: 40%;
 }
 .film{
   font-family:fantasy;
@@ -17,10 +19,14 @@ body{
   font-weight: bold;
   padding-top: 5px;
 }
+.number{
+  padding-left: 100%;
+}
 h4{
   font-family:fantasy;
   font-size: 40px;
   font-weight: bold;
+  color: white;
 }
 .bar{
   height: 40px;
@@ -29,4 +35,7 @@ h4{
   background-color: #FEBD84;
   padding-left: 10px;
   margin-bottom: 50px;
+}
+.bar:hover{
+  background-color:#F8821C;
 }

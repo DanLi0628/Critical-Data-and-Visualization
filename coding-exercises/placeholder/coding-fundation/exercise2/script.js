@@ -61,13 +61,19 @@ for (var i = 1; i < transformedData.length; i++){
   var bar = document.createElement('div');
   bar.className='bar';
   var barWidth = transformedData[i].average;
-  bar.style.width = (barWidth*150)+"px";
+  bar.style.width = (barWidth*200)+"px";
+  console.log(transformedData.average);
 
   var film = document.createElement('div');
   film.className = 'film';
+  film.style.color = 'white';
   film.innerHTML = transformedData[i].name;
+
+  var number = document.createElement('span');
+  number.className = 'number';
+  number.innerHTML = transformedData[i].average.toFixed(2);
 
   container.appendChild(bar);
   bar.appendChild(film);
-
+  film.appendChild(number);
 }
