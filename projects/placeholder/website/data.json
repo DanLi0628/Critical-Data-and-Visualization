@@ -1,0 +1,80 @@
+[
+    {
+        "timestamp": "2021-02-01T08:57:52.000Z",
+        "howMuchTimeDidYouSpendOnDecidingWhatToEat": 1,
+        "whatDidYouOrder": "spicy hot pot",
+        "howMuchIsIt": 27.42,
+        "didItArriveEarly": 2,
+        "whenDidYouOrderIt": "15:16",
+        "howLongDidItTakeToArrive": 25,
+        "didYouFinishYourFood": "Yes",
+        "didYouSortTheTrash": "No",
+        "whatDidYouDoWhenEating": "watching videos",
+        "whatsYourMotivationOfOrdering": "dinner"
+    },
+    {
+        "timestamp": "2021-02-02T08:58:50.000Z",
+        "howMuchTimeDidYouSpendOnDecidingWhatToEat": 1,
+        "whatDidYouOrder": "Korean Bibimbap",
+        "howMuchIsIt": 17.88,
+        "didItArriveEarly": 3,
+        "whenDidYouOrderIt": "12:39",
+        "howLongDidItTakeToArrive": 24,
+        "didYouFinishYourFood": "Yes",
+        "didYouSortTheTrash": "Yes",
+        "whatDidYouDoWhenEating": "watching videos",
+        "whatsYourMotivationOfOrdering": "dinner"
+    },
+    {
+        "timestamp": "2021-02-02T08:59:45.000Z",
+        "howMuchTimeDidYouSpendOnDecidingWhatToEat": 1,
+        "whatDidYouOrder": "bubble tea",
+        "howMuchIsIt": 22,
+        "didItArriveEarly": 10,
+        "whenDidYouOrderIt": "14:52",
+        "howLongDidItTakeToArrive": 29,
+        "didYouFinishYourFood": "Yes",
+        "didYouSortTheTrash": "Yes",
+        "whatDidYouDoWhenEating": "writing essay",
+        "whatsYourMotivationOfOrdering": "motivate me to write essay"
+    },
+    {
+        "timestamp": "2021-02-04T08:56:51.000Z",
+        "howMuchTimeDidYouSpendOnDecidingWhatToEat": 2,
+        "whatDidYouOrder": "hamburger",
+        "howMuchIsIt": 35.3,
+        "didItArriveEarly": 8,
+        "whenDidYouOrderIt": "15:57",
+        "howLongDidItTakeToArrive": 22,
+        "didYouFinishYourFood": "Yes",
+        "didYouSortTheTrash": "Yes",
+        "whatDidYouDoWhenEating": "watching videos",
+        "whatsYourMotivationOfOrdering": "dinner"
+    },
+    {
+        "timestamp": "2021-02-05T04:09:03.000Z",
+        "howMuchTimeDidYouSpendOnDecidingWhatToEat": 1,
+        "whatDidYouOrder": "hamburger",
+        "howMuchIsIt": 35.3,
+        "didItArriveLate": 5,
+        "whenDidYouOrderIt": "11:29",
+        "howLongDidItTakeToArrive": 25,
+        "didYouFinishYourFood": "Yes",
+        "didYouSortTheTrash": "Yes",
+        "whatDidYouDoWhenEating": "study",
+        "whatsYourMotivationOfOrdering": "dinner"
+    },
+    {
+        "timestamp": "2021-02-07T03:59:03.453Z",
+        "howMuchTimeDidYouSpendOnDecidingWhatToEat": 6,
+        "whatDidYouOrder": "spicy hot pot (rice)",
+        "howMuchIsIt": 34.3,
+        "didItArriveEarly": 14,
+        "whenDidYouOrderIt": "11:20",
+        "howLongDidItTakeToArrive": 7,
+        "didYouFinishYourFood": "Yes",
+        "didYouSortTheTrash": "Yes",
+        "whatDidYouDoWhenEating": "watching videos",
+        "whatsYourMotivationOfOrdering": "dinner"
+    }
+]

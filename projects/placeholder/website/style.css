@@ -1,0 +1,15 @@
+#viz{
+  background-color: LightBlue;
+  position: fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width: 100%;
+}
+
+#txt{
+  fill: grey;
+  font-weight: bolder;
+  font-size: 40px;
+  font-family: fantasy;
+}
