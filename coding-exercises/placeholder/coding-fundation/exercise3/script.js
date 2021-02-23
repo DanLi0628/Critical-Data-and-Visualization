@@ -60,8 +60,6 @@ legend.append("text")
     .attr("font-size",16)
 ;
 
-
-
 function legendText(incomingData){
   if (incomingData == "red"){
     type = "spicy food";
@@ -187,7 +185,7 @@ function link(incomingData,i){
   }else if (motivation == "treat my friend"){
     link = "friend.jpg"
   }
-
+  console.log(link);
   return link;
 }
 
