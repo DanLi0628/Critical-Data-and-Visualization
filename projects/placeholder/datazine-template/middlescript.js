@@ -30,6 +30,17 @@ function gotData(incomingData){
     .attr("fill",color)
   ;
 
+  let rect = semiCircles.append("rect")
+    .attr("x",-45)
+    .attr("y",80)
+    .attr("width",90)
+    .attr("height",20)
+    .attr("fill","grey")
+  ;
+  
+  rect.attr("transform",semiCircleLocation)
+  ;
+
 }
 
 function semiCircleLocation(d,i){
@@ -48,7 +59,6 @@ function semiCircleLocation(d,i){
     x = 1200  + (w/5) * (i+1-15)-120;
     y = 550;
   }
-  console.log(x,y);
   return "translate("+ x +"," + y +")";
 }
 
