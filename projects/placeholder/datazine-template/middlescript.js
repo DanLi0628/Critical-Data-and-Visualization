@@ -27,6 +27,7 @@ function gotData(incomingData){
   semiCircles.append("path")
     .attr("transform",semiCircleLocation)
     .attr("d",arcGenerator)
+    .attr("fill",color)
   ;
 
 }
@@ -49,4 +50,24 @@ function semiCircleLocation(d,i){
   }
   console.log(x,y);
   return "translate("+ x +"," + y +")";
+}
+
+function color(incomingData,i){
+  type = incomingData.whatDidYouOrder;
+  if (type == "Korean Bibimbap"){
+    color = "purple";
+  }else if (type == "bubble tea"){
+    color = "pink";
+  }else if (type == "hamburger"){
+    color = "gold";
+  }else if (type == "spicy hot pot" || type == "spicy hot pot(rice)"){
+    color = "red";
+  }else if (type == "fruits" || type == "cherry"){
+    color = "lightGreen";
+  }else if (type == "pancake" || type == "steamed vermicelli roll, steamed dumpling, osmanthus cake"){
+    color = "lightYellow";
+  }else if (type == "rice with beef"){
+    color = "white";
+  }
+  return color;
 }
