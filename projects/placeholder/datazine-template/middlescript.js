@@ -11,6 +11,7 @@ let viz = d3.select("#container")
 
 d3.json("data.json").then(gotData);
 
+
 function gotData(incomingData){
   console.log(incomingData);
   //[group1] create a "bowl" class
@@ -61,7 +62,10 @@ function gotData(incomingData){
   let timeRects = viz.selectAll(".timeRect").data(incomingData).enter()
   .append("g")
     .attr("class","timeRect")
-  ;
+    
+  //wifi/video
+  //if (incomingData.whatDidYouDoWhenEating == "")
+
 
   //create rects
   let firstRect = timeRects.append("rect")
@@ -252,6 +256,5 @@ function circleLocation(d,i){
     x = x + cx;
     y = y + cx/2;
   }
-
   return "translate("+ x +"," + y +")";
 }
