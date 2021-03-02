@@ -47,6 +47,16 @@ function gotData(incomingData){
   rect.attr("transform",shapeLocation)
   ;
 
+  //create "sun"
+  let sun = semiCircles.append("circle")
+    .attr("cx",0)
+    .attr("cy",0)
+    .attr("r",20)
+    .attr("fill","red")
+  ;
+
+  sun.attr("transform",circleLocation);
+
   //[group2] time rects below
   let timeRects = viz.selectAll(".timeRect").data(incomingData).enter()
   .append("g")
@@ -212,4 +222,36 @@ function rectsLocation(d,i){
       return "translate("+ x +"," + y +")";
     }
   }
+}
+
+//the location of the sun
+function circleLocation(d,i){
+  let cx = 0;
+  let h = d.whenDidYouOrderIt;
+  let x = 240;
+  let y = 150;
+  if (i<=4){
+    x = (w/5) * (i+1)-120;
+    y = 50;
+  }else if(i<=9){
+    x = (w/5) * (i+1-5)-120;
+    y = 450;
+  }else if (i<=14){
+    x = 1200  + (w/5) * (i+1-10)-120;
+    y = 50;
+  }else if (i <=19){
+    x = 1200  + (w/5) * (i+1-15)-120;
+    y = 450;
+  }
+  if (h <= 1200){
+    cx = (1200 - h)/10;
+    x = x - cx;
+    y = y + cx/2;
+  }else if (h > 1200){
+    cx = (h-1200)/10;
+    x = x + cx;
+    y = y + cx/2;
+  }
+
+  return "translate("+ x +"," + y +")";
 }
