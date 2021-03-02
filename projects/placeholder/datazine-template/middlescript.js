@@ -62,7 +62,7 @@ function gotData(incomingData){
   let timeRects = viz.selectAll(".timeRect").data(incomingData).enter()
   .append("g")
     .attr("class","timeRect")
-    
+
   //wifi/video
   //if (incomingData.whatDidYouDoWhenEating == "")
 
