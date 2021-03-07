@@ -189,7 +189,7 @@ function color(incomingData,i){
   }else if (type == "pancake" || type == "steamed vermicelli roll, steamed dumpling, osmanthus cake"){
     color = "lightYellow";
   }else if (type == "rice with beef"){
-    color = "white";
+    color = "#ABECFF";
   }
   return color;
 }
