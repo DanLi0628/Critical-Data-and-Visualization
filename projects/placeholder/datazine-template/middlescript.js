@@ -11,9 +11,19 @@ let viz = d3.select("#container")
 
 d3.json("data.json").then(gotData);
 
-
 function gotData(incomingData){
   console.log(incomingData);
+
+  //get the data of cost and doing
+  let cost = [];
+  let doing = [];
+
+  for (let i = 0; i < incomingData.length; i++){
+    cost.push(incomingData[i].howMuchIsIt);
+    doing.push(incomingData[i].whatDidYouDoWhenEating)
+  }
+  console.log(cost,doing);
+
   //[group1] create a "bowl" class
   let semiCircles = viz.selectAll(".semi").data(incomingData).enter()
   .append("g")
@@ -70,7 +80,7 @@ function gotData(incomingData){
   //create rects
   let firstRect = timeRects.append("rect")
     .attr("x",0)
-    .attr("y",130)
+    .attr("y",140)
     .attr("width",arrivalWidth)
     .attr("height",15)
     .attr("stroke","black")
@@ -80,17 +90,27 @@ function gotData(incomingData){
   //early/late time
   let timeRect = timeRects.append("rect")
     .attr("x",0)
-    .attr("y",150)
+    .attr("y",190)
     .attr("width",timeWidth)
     .attr("height",15)
     .attr("stroke","black")
     .attr("fill",timeColor)
   ;
 
-  firstRect.attr("transform",shapeLocation)
+//[group3] rice
+  let customShapes = viz.selectAll(".shapes").data(cost).enter()
+    .append("g")
+      .attr("class","customShape")
+      .html(shape)
+      .data(cost)
   ;
-  timeRect.attr("transform",rectsLocation)
-  ;
+
+  firstRect.attr("transform",shapeLocation);
+
+  timeRect.attr("transform",rectsLocation);
+
+  customShapes.attr("transform",riceLocation);
+
 
 }
 
@@ -100,16 +120,55 @@ function shapeLocation(d,i){
   let y = 150;
   if (i<=4){
     x = (w/5) * (i+1)-120;
-    y = 130;
+    y = 130+25;
   }else if(i<=9){
     x = (w/5) * (i+1-5)-120;
-    y = 530;
+    y = 530+25;
   }else if (i<=14){
     x = 1200  + (w/5) * (i+1-10)-120;
-    y = 130;
+    y = 130+25;
   }else if (i <=19){
     x = 1200  + (w/5) * (i+1-15)-120;
-    y = 530;
+    y = 530+25;
+  }
+  return "translate("+ x +"," + y +")";
+}
+
+function riceLocation(d,i){
+  console.log(d);
+  let y1=12.81;
+  let y2=25.61;
+  let y3=35.35;
+  let y4=39.72;
+  let y5=50.54;
+  let y0=0;
+  if (d<=20){
+    y0 = y1;
+  }else if (d<=25){
+    y0 = y2;
+  }else if (d<=30){
+    y0 = y3;
+  }else if (d<=35){
+    y0 = y4;
+  }else if (d>35){
+    y0 = y5;
+  }
+  console.log(y0);
+
+  let x = 240;
+  let y = 150;
+  if (i<=4){
+    x = (w/5) * (i+1)-120-90;
+    y = 130-y0+25;
+  }else if(i<=9){
+    x = (w/5) * (i+1-5)-120-90;
+    y = 530-y0+25;
+  }else if (i<=14){
+    x = 1200  + (w/5) * (i+1-10)-120-90;
+    y = 130-y0+25;
+  }else if (i <=19){
+    x = 1200  + (w/5) * (i+1-15)-120-90;
+    y = 530-y0+25;
   }
   return "translate("+ x +"," + y +")";
 }
@@ -257,4 +316,50 @@ function circleLocation(d,i){
     y = y + cx/2;
   }
   return "translate("+ x +"," + y +")";
+}
+
+function shape(d,i){
+  let r1= `<style type="text/css">
+  	.st0{fill:#FFFFFF;stroke:#231815;stroke-miterlimit:10;}
+  	.st1{fill:#FFFFFF;}
+  </style>
+  <path class="st0" d="M22.7,13.3L22.7,13.3z"/>
+  <path class="st1" d="M0.2,13.3C2,12.5,31.3,0.8,87.7,0.5c37.6-0.2,73,4.7,92.5,12.8"/>`
+  let r2= `<style type="text/css">
+  	.st0{fill:#FFFFFF;stroke:#231815;stroke-miterlimit:10;}
+  	.st1{fill:#FFFFFF;}
+  </style>
+  <path class="st0" d="M0.3,26.1L0.3,26.1z"/>
+  <path class="st1" d="M0.3,26.1C2.2,24.6,31.4,1.2,87.8,0.5c37.6-0.4,73,9.4,92.5,25.6"/>`
+  let r3= `<style type="text/css">
+  	.st0{fill:#FFFFFF;stroke:#231815;stroke-miterlimit:10;}
+  	.st1{fill:#FFFFFF;}
+  </style>
+  <path class="st0" d="M0.4,35.8L0.4,35.8z"/>
+  <path class="st1" d="M0.4,35.8C2.2,33.7,31.4,1.4,87.9,0.5c37.6-0.6,73,12.9,92.5,35.3"/>`
+  let r4= `<style type="text/css">
+  	.st0{fill:#FFFFFF;stroke:#231815;stroke-miterlimit:10;}
+  	.st1{fill:#FFFFFF;}
+  </style>
+  <path class="st0" d="M0.4,39.7L0.4,39.7z"/>
+  <path class="st1" d="M0.4,39.7C2.3,37.3,31.5,1.1,87.9,0c37.8-0.6,73.1,14.5,92.5,39.7"/>`
+  let r5= `<style type="text/css">
+  	.st0{fill:#FFFFFF;stroke:#231815;stroke-miterlimit:10;}
+  	.st1{fill:#FFFFFF;}
+  </style>
+  <path class="st0" d="M0.4,51L0.4,51z"/>
+  <path class="st1" d="M0.4,51C2.3,48,31.5,1.8,87.9,0.5c37.6-0.8,72.9,18.4,92.5,50.5"/>`
+
+  if (d<=20){
+    r = r1;
+  }else if (d<=25){
+    r = r2;
+  }else if (d<=30){
+    r = r3;
+  }else if (d<=35){
+    r = r4;
+  }else if (d>35){
+    r = r5;
+  }
+  return r;
 }
