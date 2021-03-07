@@ -132,7 +132,6 @@ function shapeLocation(d,i){
 }
 
 function riceLocation(d,i){
-  console.log(d);
   let y1=12.81;
   let y2=25.61;
   let y3=35.35;
@@ -150,7 +149,6 @@ function riceLocation(d,i){
   }else if (d>35){
     y0 = y5;
   }
-  console.log(y0);
 
   let x = 240;
   let y = 150;
