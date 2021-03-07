@@ -102,7 +102,6 @@ function gotData(incomingData){
     .append("g")
       .attr("class","customShape")
       .html(shape)
-      .data(cost)
   ;
 
   firstRect.attr("transform",shapeLocation);
@@ -110,8 +109,6 @@ function gotData(incomingData){
   timeRect.attr("transform",rectsLocation);
 
   customShapes.attr("transform",riceLocation);
-
-
 }
 
 //the rectLocation of each shape
