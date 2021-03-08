@@ -4,4 +4,4 @@ During my coding process, the biggest challenge for me is to determine the locat
 
 Another challenge for me is to draw images, since d3 can only draw simple shapes like circles and rectangles. I used Illustrator to draw different height of "rice" and it turns out to be successful, but when it comes to the cover and back, I found it was hard to locate these custom shapes.
 
-For this project, my biggest takeaway is that now I'm really familiar with d3, including its groups, classes, the dataset and so on. And it's really great to see my own data get visualized!
+For this project, my biggest takeaway is now I'm really familiar with d3, including its groups, classes, the dataset and so on. And it's really great to see my own data get visualized!
