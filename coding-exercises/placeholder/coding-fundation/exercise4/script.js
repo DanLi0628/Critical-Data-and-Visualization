@@ -118,7 +118,6 @@ function gotData(incomingData){
     }
 
     let datagroups = vizGroup.selectAll(".datagroup").data(currentYearData,assignKeys);
-    console.log("see me",datagroups);
 
     let enteringElements = datagroups.enter()
       .append("g")
@@ -141,14 +140,12 @@ function gotData(incomingData){
       .attr("font-size","10px")
       .attr("fill","white")
     ;
-
-    enteringElements.transition().delay(500).attr("transform",getGroupLocation);
+    enteringElements.attr("transform",getGroupLocation);
 
     // take care of updating elements
     let exitingElements = datagroups.exit();
     exitingElements.transition().remove();
     datagroups.attr("transform",getIncomingGroupLocation).transition().attr("transform",getGroupLocation);
-
 
 
 
