@@ -110,38 +110,87 @@ function gotData(incomingData){
     }
 
     let datagroups = vizGroup.selectAll(".datagroup").data(currentYearData,function(d,i){
+      console.log(d.Country);
       return d.Country;
     });
 
+    // take care of entering elements
     let enteringElements = datagroups.enter()
       .append("g")
         .attr("class","datagroup")
     ;
 
-    // take care of entering elements
     enteringElements.append("circle")
         .attr("r",10)
-        .attr("fill","red")
+        .attr("fill",color)
     ;
 
     enteringElements.append("text")
       .text(function(d,i){
         return d.Country;
       })
-      .attr("x",-17)
-      .attr("y",17)
+      .attr("x",12)
+      .attr("y",7)
       .attr("font-family","sans-serif")
-      .attr("font-size","10px")
-      .attr("fill","white")
+      .attr("font-size","15px")
+      .attr("fill","purple")
     ;
 
-    enteringElements.attr("transform",getGroupLocation);
-    datagroups.transition().attr("transform",getGroupLocation);
-
     // take care of updating elements
+    enteringElements.transition().attr("transform",getGroupLocation);
+    datagroups.transition().ease(d3.easeLinear).attr("transform",getGroupLocation);
 
-
-
+    function color(d,i){
+      country = d.Country;
+      if (country == "Afghanistan" || country == "Albania" || country == "Algeria" || country == "Angola" || country == "Argentina" || country == "Australia" || country == "Austria"){
+        color = "#9FE7F7";
+      }else if (country == "Bahrain" || country == "Bangladesh" || country == "Belgium" || country == "Benin" || country == "Bolivia" || country == "Bosnia and Herzegovina" || country == "Botswana" || country == "Brazil" || country == "Bulgaria" || country == "Burkina Faso" || country == "Burundi"){
+        color = "#F7D59F";
+      }else if (country == "Cambodia" || country == "Cameroon" || country == "Canada" || country == "Central African Republic" || country == "Chad" || country == "Chile" || country == "China" || country == "Colombia" || country == "Comoros" || country == "Congo, Dem. Rep." || country == "Congo, Rep." || country == "Costa Rica" || country == "Cote d'Ivoire" || country == "Croatia" || country == "Cuba" || country == "Czech Republic"){
+        color = "#F7F39F"
+      }else if (country == "Denmark" || country == "Djibouti" || country == "Dominican Republic" ){
+        color = "#D9F99C"
+      }else if (country == "Ecuador" || country == "Egypt" || country == "El Salvador" || country == "Equatorial Guinea" || country == "Eritrea" || country == "Ethiopia" ){
+        color = "#C1C1FB"
+      }else if (country == "Finland" || country == "France"  ){
+        color = "#EFC1FB"
+      }else if (country == "Gabon" || country == "Gambia" || country == "Germany" || country == "Ghana" || country == "Greece" || country == "Guatemala" || country == "Guinea" || country == "Guinea-Bissau" ){
+        color = "#C1DFFB"
+      }else if (country == "Haiti" || country == "Honduras" || country == "Hong Kong, China" || country == "Hungary"){
+        color = "#3297F6"
+      }else if (country == "Iceland" || country == "India" || country == "Indonesia" || country == "Iran" || country == "Iraq" || country == "Ireland" || country == "Israel" || country == "Italy"){
+        color = "#6FFBAC"
+      }else if (country == "Jamaica" || country == "Japan" || country == "Jordan" ){
+        color = "#FBD86F"
+      }else if (country == "Kenya" || country == "Kuwait" ){
+        color = "#FEA4B2"
+      }else if (country == "Lebanon" || country == "Lesotho" || country == "Liberia" || country == "Libya"){
+        color = "#FC6179"
+      }else if (country == "Madagascar" || country == "Malawi" || country == "Malaysia" || country == "Mali" || country == "Mauritania" || country == "Mauritius" || country == "Mexico" || country == "Mongolia" || country == "Montenegro" || country == "Morocco" || country == "Mozambique" || country == "Myanmar" ){
+        color = "#F7A5E4"
+      }else if (country == "Namibia" || country == "Nepal" || country == "Netherlands" || country == "New Zealand" || country == "Nicaragua" || country == "Niger" || country == "Nigeria" || country == "Norway"){
+        color = "#4E62F7"
+      }else if (country == "Oman"){
+        color = "#4EF7E5"
+      }else if (country == "Pakistan" || country == "Panama" || country == "Paraguay" || country == "Peru" || country == "Philippines" || country == "Poland" || country == "Portugal" || country == "Puerto Rico" ){
+        color = "#D2AF6D"
+      }else if (country == "Reunion" || country == "Romania" || country == "Rwanda"){
+        color = "#6DD295"
+      }else if (country == "Sao Tome and Principe" || country == "Saudi Arabia" || country == "Senegal" || country == "Serbia" || country == "Sierra Leone" || country == "Singapore" || country == "Slovak Republic" || country == "Slovenia" || country == "Somalia" || country == "South Africa" || country == "Spain" || country == "Sri Lanka" || country == "Sudan" || country == "Swaziland" || country == "Sweden" || country == "Switzerland" || country == "Syria"){
+        color = "#D2976D"
+      }else if (country == "Taiwan" || country == "Tanzania" || country == "Thailand" || country == "Togo" || country == "Trinidad and Tobago" || country == "Tunisia" || country == "Turkey"){
+        color = "#6D6FD2"
+      }else if (country == "Uganda" || country == "United Kingdom" || country == "United States" || country == "Uruguay"){
+        color = "#74C443"
+      }else if (country == "Venezuela" || country == "Vietnam"){
+        color = "#E88022"
+      }else if (country == "West Bank and Gaza"){
+        color = "#139236"
+      }else if (country == "Zambia" || country == "Zimbabwe"){
+        color = "white"
+      }
+      return color;
+    }
 
   }
 
@@ -169,7 +218,7 @@ function gotData(incomingData){
     currentYear = dates[currentYearIndex];
     year.text(currentYear)
     drawViz();
-  }, 1000);
+  }, 200);
 
 
 
