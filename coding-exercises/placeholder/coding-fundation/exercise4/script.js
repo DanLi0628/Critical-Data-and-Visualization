@@ -103,25 +103,19 @@ function gotData(incomingData){
     // the three steps in the comments below help you to know what to aim for here
 
     // bind currentYearData to elements
-    function assignKeys(d,i){
-      return d.country;
-    }
     function getGroupLocation(d,i){
       let x = xScale(d.fert);
       let y = yScale(d.life);
       return "translate(" + x + "," + y + ")";
     }
-    function getIncomingGroupLocation(d,i){
-      let x = xScale(d.fert);
-      let y = yScale(d.life);
-      return "translate(" + x + "," + y + ")";
-    }
 
-    let datagroups = vizGroup.selectAll(".datagroup").data(currentYearData,assignKeys);
+    let datagroups = vizGroup.selectAll(".datagroup").data(currentYearData,function(d,i){
+      return d.Country;
+    });
 
     let enteringElements = datagroups.enter()
       .append("g")
-        .attr("class","datagroups")
+        .attr("class","datagroup")
     ;
 
     // take care of entering elements
@@ -131,7 +125,7 @@ function gotData(incomingData){
     ;
 
     enteringElements.append("text")
-      .text(function (d,i){
+      .text(function(d,i){
         return d.Country;
       })
       .attr("x",-17)
@@ -140,12 +134,12 @@ function gotData(incomingData){
       .attr("font-size","10px")
       .attr("fill","white")
     ;
+
     enteringElements.attr("transform",getGroupLocation);
+    datagroups.transition().attr("transform",getGroupLocation);
 
     // take care of updating elements
-    let exitingElements = datagroups.exit();
-    exitingElements.transition().remove();
-    datagroups.attr("transform",getIncomingGroupLocation).transition().attr("transform",getGroupLocation);
+
 
 
 
