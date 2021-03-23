@@ -277,7 +277,32 @@ function shuffleData(){
 document.getElementById("buttonE").addEventListener("click", shuffleData);
 
 function surprise(){
-  var audio = new Audio("")
+  allNames = data.map(function(d){return d.key});
+
+  xScale.domain(allNames);
+
+  yMax = d3.max(data, function(d){return d.value});
+  yScale.domain(yDomain);
+
+  xAxisGroup.transition().call(xAxis).selectAll("text").attr("font-size", 18);
+  console.log("new data", data);
+  elementsForPage = graphGroup.selectAll(".datapoint").data(data);
+  elementsForPage.transition().duration(300).attr("transform", function(d, i){
+    return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
+  });
+  elementsForPage.select("rect")
+    .transition()
+    .delay(300)
+    .duration(200)
+    .attr("width", function(){
+      return xScale.bandwidth();
+  })
+    .attr("y", function(d,i){
+      return 0;
+  })
+    .attr("height", function(d, i){
+  })
+  ;
 }
 document.getElementById("buttonF").addEventListener("click", surprise);
 
