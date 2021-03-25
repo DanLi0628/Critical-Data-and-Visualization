@@ -1,6 +1,5 @@
 //step1: build buttons on the page
-function add(){
-  addDatapoints(1);
+function update(){
   allNames = data.map(function(d){return d.key});
 
   xScale.domain(allNames);
@@ -9,8 +8,16 @@ function add(){
   yScale.domain(yDomain);
 
   xAxisGroup.transition().call(xAxis).selectAll("text").attr("font-size", 18);
+  console.log("new data", data);
+}
 
-  elementsForPage = graphGroup.selectAll(".datapoint").data(data);
+function add(){
+  addDatapoints(1);
+  update();
+
+  elementsForPage = graphGroup.selectAll(".datapoint").data(data,function(d){
+    return d.name;
+  });
   enteringElements = elementsForPage.enter();
   elementsForPage.transition().duration(500).attr("transform", function(d, i){
     return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
@@ -64,19 +71,11 @@ document.getElementById("buttonA").addEventListener("click", add);
 
 function remove(){
   removeDatapoints(1);
-  allNames = data.map(function(d){return d.key});
+  update();
 
-  xScale.domain(allNames);
-
-  yMax = d3.max(data, function(d){return d.value});
-  yScale.domain(yDomain);
-
-  xAxisGroup.transition().call(xAxis).selectAll("text").attr("font-size", 18);
-
-  elementsForPage = graphGroup.selectAll(".datapoint").data(data);
-  exitingElements = elementsForPage
-    .exit()
-  ;
+  elementsForPage = graphGroup.selectAll(".datapoint").data(data,function(d){
+    return d.name;
+  });
 
   elementsForPage.transition().duration(500).attr("transform", function(d, i){
     return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
@@ -118,19 +117,12 @@ document.getElementById("buttonB").addEventListener("click", remove);
 
 function removeAndAdd(){
   removeDatapoints(Math.random()*3);
-  allNames = data.map(function(d){return d.key});
+  update();
 
-  xScale.domain(allNames);
-
-  yMax = d3.max(data, function(d){return d.value});
-  yScale.domain(yDomain);
-
-  xAxisGroup.transition().call(xAxis).selectAll("text").attr("font-size", 18);
-
-  elementsForPage = graphGroup.selectAll(".datapoint").data(data);
-  exitingElements = elementsForPage.exit();
+  elementsForPage = graphGroup.selectAll(".datapoint").data(data,function(d){
+    return d.name;
+  });
   exitingElements.remove();
-  console.log(elementsForPage);
 
   exitingElements = elementsForPage.exit();
   exitingElements
@@ -150,17 +142,11 @@ function removeAndAdd(){
    ;
 
   addDatapoints(Math.random()*3);
-  console.log("new data", data);
-  allNames = data.map(function(d){return d.key});
+  update();
 
-  xScale.domain(allNames);
-
-  yMax = d3.max(data, function(d){return d.value});
-  yScale.domain(yDomain);
-
-  xAxisGroup.transition().call(xAxis).selectAll("text").attr("font-size", 18);
-
-  elementsForPage = graphGroup.selectAll(".datapoint").data(data);
+  elementsForPage = graphGroup.selectAll(".datapoint").data(data,function(d){
+    return d.name;
+  });
   enteringElements = elementsForPage.enter();
   elementsForPage.transition().duration(500).attr("transform", function(d, i){
     return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
@@ -214,16 +200,10 @@ document.getElementById("buttonC").addEventListener("click", removeAndAdd);
 
 function sortData(){
   sortDatapoints();
-  allNames = data.map(function(d){return d.key});
-
-  xScale.domain(allNames);
-
-  yMax = d3.max(data, function(d){return d.value});
-  yScale.domain(yDomain);
-
-  xAxisGroup.transition().call(xAxis).selectAll("text").attr("font-size", 18);
-  console.log("new data", data);
-  elementsForPage = graphGroup.selectAll(".datapoint").data(data);
+  update();
+  elementsForPage = graphGroup.selectAll(".datapoint").data(data,function(d){
+    return d.name;
+  });
   elementsForPage.transition().duration(300).attr("transform", function(d, i){
     return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
   });
@@ -246,16 +226,10 @@ document.getElementById("buttonD").addEventListener("click", sortData);
 
 function shuffleData(){
   shuffleDatapoints();
-  allNames = data.map(function(d){return d.key});
-
-  xScale.domain(allNames);
-
-  yMax = d3.max(data, function(d){return d.value});
-  yScale.domain(yDomain);
-
-  xAxisGroup.transition().call(xAxis).selectAll("text").attr("font-size", 18);
-  console.log("new data", data);
-  elementsForPage = graphGroup.selectAll(".datapoint").data(data);
+  update();
+  elementsForPage = graphGroup.selectAll(".datapoint").data(data,function(d){
+    return d.name;
+  });
   elementsForPage.transition().duration(300).attr("transform", function(d, i){
     return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
   });
@@ -277,16 +251,10 @@ function shuffleData(){
 document.getElementById("buttonE").addEventListener("click", shuffleData);
 
 function surprise(){
-  allNames = data.map(function(d){return d.key});
-
-  xScale.domain(allNames);
-
-  yMax = d3.max(data, function(d){return d.value});
-  yScale.domain(yDomain);
-
-  xAxisGroup.transition().call(xAxis).selectAll("text").attr("font-size", 18);
-  console.log("new data", data);
-  elementsForPage = graphGroup.selectAll(".datapoint").data(data);
+  update();
+  elementsForPage = graphGroup.selectAll(".datapoint").data(data,function(d){
+    return d.name;
+  });
   elementsForPage.transition().duration(300).attr("transform", function(d, i){
     return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
   });
