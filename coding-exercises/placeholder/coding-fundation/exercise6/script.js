@@ -21,61 +21,97 @@ function gotData(incomingData){
   incomingData = fixJSDateObjects(incomingData);
   console.log(incomingData);
 
-
-  // temporarily flatten data to get the minima/maxima:
-  let flatData = d3.merge(incomingData)
-  // we can use a  time scale because our data expresses
-  // years in the form of JS date objects
-  let xDomain = d3.extent(flatData, function(d){ return d.year });
-  let xScale = d3.scaleTime().domain(xDomain).range([xpadding, w-xpadding]);
-  let xAxis = d3.axisBottom(xScale);
-  let xAxisGroup = viz.append("g")
-      .attr("class", "xaxisgroup")
-      .attr("transform", "translate(0,"+(h-ypadding)+")")
-  ;
-  xAxisGroup.call(xAxis);
-
-  let yMax = d3.max(flatData, function(d){
-    return d.birthsPerThousand;
-  })
-  let yDomain = [0, yMax];
-  let yScale = d3.scaleLinear().domain(yDomain).range([h-ypadding, ypadding]);
-  let yAxis = d3.axisLeft(yScale);
-  let yAxisGroup = viz.append("g")
-      .attr("class", "yaxisgroup")
-      .attr("transform", "translate("+(xpadding/2)+",0)")
-  ;
-  yAxisGroup.call(yAxis);
-
-
-  let graphGroup = viz.append("g").attr("class", "graphGroup");
-
-  let lineMaker = d3.line()
-    .x(function(d,i){
-      return xScale(d.year);
-    })
-    .y(function(d,i){
-      return yScale(d.birthsPerThousand);
-    })
-  ;
-
-  graphGroup.selectAll(".line").data(incomingData).enter()
-    .append("path")
-    .attr("d",lineMaker)
-    .attr("fill","none")
-    .attr("stroke-width",5)
-    .attr("stroke",function(d){
-      if (d[0].country == "United States"){
-        return "blue";
-      }else{
-        return "red";
-      }
-    })
+    // temporarily flatten data to get the minima/maxima:
+    let flatData = d3.merge(incomingData)
+    // we can use a  time scale because our data expresses
+    // years in the form of JS date objects
+    let xDomain = d3.extent(flatData, function(d){ return d.year });
+    let xScale = d3.scaleTime().domain(xDomain).range([xpadding, w-xpadding]);
+    let xAxis = d3.axisBottom(xScale);
+    let xAxisGroup = viz.append("g")
+        .attr("class", "xaxisgroup")
+        .attr("transform", "translate(0,"+(h-ypadding)+")")
     ;
+    xAxisGroup.call(xAxis);
+
+    let yMax = d3.max(flatData, function(d){
+      return d.birthsPerThousand;
+    })
+    let yDomain = [0, yMax];
+    let yScale = d3.scaleLinear().domain(yDomain).range([h-ypadding, ypadding]);
+    let yAxis = d3.axisLeft(yScale);
+    let yAxisGroup = viz.append("g")
+        .attr("class", "yaxisgroup")
+        .attr("transform", "translate("+(xpadding/2)+",0)")
+    ;
+    yAxisGroup.call(yAxis);
+    //line maker
+    let lineMaker = d3.line()
+      .x(function(d,i){
+        return xScale(d.year);
+      })
+      .y(function(d,i){
+        return yScale(d.birthsPerThousand);
+      })
+    ;
+    //set up
+    let graphGroup = viz.append("g").attr("class", "line");
+
+    function update(country){
+      //enter elements
+      console.log(country);
+      elementsForPage = graphGroup.selectAll(".line").data(country,function(d,i){
+        return d.year;
+      })
+
+      let enteringElements = elementsForPage.enter()
+        .append("path")
+        .attr("class", "line")
+        .attr("d", lineMaker)
+        .attr("fill", "none")
+        .attr("stroke-width", 5)
+        .attr("stroke", function(d, i){
+          if (d[0].country == "United States") {
+            return "blue"
+          } else {
+            return "red"
+          }
+        })
+        ;
+      console.log(enteringElements);
+
+      elementsForPage.transition()
+        .attr("d",lineMaker)
+        .attr("stroke", function (d, i) {
+            if (d[0].country == "United States") {
+              return "blue"
+            } else {
+              return "red"
+            }
+          })
+          ;
+
+      //exitingElements
+      let exitingElements = elementsForPage.exit();
+      exitingElements.transition().remove();
+    }
 
 
-
+  //transition
+  document.getElementById("usa").addEventListener("click", function(){
+    country = incomingData.filter(function(d){
+      return d[0].country == "United States";
+    });
+    update(country);
+  });
+  document.getElementById("china").addEventListener("click",function(){
+    country = incomingData.filter(function(d){
+      return d[0].country == "China";
+    })
+    update(country);
+  });
 }
+
 
 // function that turns all datapoints year values
 // into JS date objects in the very beginning

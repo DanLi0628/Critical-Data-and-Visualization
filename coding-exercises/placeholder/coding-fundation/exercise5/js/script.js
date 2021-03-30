@@ -16,7 +16,7 @@ function add(){
   update();
 
   elementsForPage = graphGroup.selectAll(".datapoint").data(data,function(d){
-    return d.name;
+    return d.key;
   });
   enteringElements = elementsForPage.enter();
   elementsForPage.transition().duration(500).attr("transform", function(d, i){
@@ -74,7 +74,7 @@ function remove(){
   update();
 
   elementsForPage = graphGroup.selectAll(".datapoint").data(data,function(d){
-    return d.name;
+    return d.key;
   });
 
   elementsForPage.transition().duration(500).attr("transform", function(d, i){
@@ -120,7 +120,7 @@ function removeAndAdd(){
   update();
 
   elementsForPage = graphGroup.selectAll(".datapoint").data(data,function(d){
-    return d.name;
+    return d.key;
   });
   exitingElements.remove();
 
@@ -145,7 +145,7 @@ function removeAndAdd(){
   update();
 
   elementsForPage = graphGroup.selectAll(".datapoint").data(data,function(d){
-    return d.name;
+    return d.key;
   });
   enteringElements = elementsForPage.enter();
   elementsForPage.transition().duration(500).attr("transform", function(d, i){
@@ -202,7 +202,7 @@ function sortData(){
   sortDatapoints();
   update();
   elementsForPage = graphGroup.selectAll(".datapoint").data(data,function(d){
-    return d.name;
+    return d.key;
   });
   elementsForPage.transition().duration(300).attr("transform", function(d, i){
     return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
@@ -228,7 +228,7 @@ function shuffleData(){
   shuffleDatapoints();
   update();
   elementsForPage = graphGroup.selectAll(".datapoint").data(data,function(d){
-    return d.name;
+    return d.key;
   });
   elementsForPage.transition().duration(300).attr("transform", function(d, i){
     return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
@@ -253,7 +253,7 @@ document.getElementById("buttonE").addEventListener("click", shuffleData);
 function surprise(){
   update();
   elementsForPage = graphGroup.selectAll(".datapoint").data(data,function(d){
-    return d.name;
+    return d.key;
   });
   elementsForPage.transition().duration(300).attr("transform", function(d, i){
     return "translate("+ xScale(d.key)+ "," + (h - padding) + ")"
