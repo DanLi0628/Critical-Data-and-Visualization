@@ -54,62 +54,51 @@ function gotData(incomingData){
         return yScale(d.birthsPerThousand);
       })
     ;
-    //set up
+    //separate us and china data
     let graphGroup = viz.append("g").attr("class", "line");
+    let button1Data = [];
+    let button2Data = [];
+    button1Data.push(incomingData[0]);
+    button2Data.push(incomingData[1])
 
-    function update(country){
+    function button1(){
       //enter elements
-      console.log(country);
-      elementsForPage = graphGroup.selectAll(".line").data(country,function(d,i){
-        return d.year;
-      })
-
-      let enteringElements = elementsForPage.enter()
+      graphGroup.selectAll(".line").data(button1Data).enter()
         .append("path")
-        .attr("class", "line")
         .attr("d", lineMaker)
         .attr("fill", "none")
         .attr("stroke-width", 5)
-        .attr("stroke", function(d, i){
-          if (d[0].country == "United States") {
-            return "blue"
-          } else {
-            return "red"
-          }
-        })
+        .attr("stroke","blue")
+        .attr("class","line")
         ;
-      console.log(enteringElements);
-
-      elementsForPage.transition()
+      //transition
+      graphGroup.selectAll(".line").data(button1Data)
+        .transition()
         .attr("d",lineMaker)
-        .attr("stroke", function (d, i) {
-            if (d[0].country == "United States") {
-              return "blue"
-            } else {
-              return "red"
-            }
-          })
-          ;
-
-      //exitingElements
-      let exitingElements = elementsForPage.exit();
-      exitingElements.transition().remove();
+        .attr("stroke","blue")
+      ;
+    }
+    function button2(){
+      //enter elements
+      graphGroup.selectAll(".line").data(button2Data).enter()
+        .append("path")
+        .attr("d", lineMaker)
+        .attr("fill", "none")
+        .attr("stroke-width", 5)
+        .attr("stroke","red")
+        .attr("class","line")
+        ;
+      //transition
+      graphGroup.selectAll(".line").data(button2Data)
+        .transition()
+        .attr("d",lineMaker)
+        .attr("stroke","red")
+      ;
     }
 
-
-  //transition
-  document.getElementById("usa").addEventListener("click", function(){
-    country = incomingData.filter(function(d){
-      return d[0].country == "United States";
-    });
-    update(country);
-  });
-  document.getElementById("china").addEventListener("click",function(){
-    country = incomingData.filter(function(d){
-      return d[0].country == "China";
-    })
-    update(country);
-  });
+  //click button to transfer
+  document.getElementById("usa").addEventListener("click", button1);
+  document.getElementById("china").addEventListener("click",button2);
 }
 
 
