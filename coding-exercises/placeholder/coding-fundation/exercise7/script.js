@@ -63,44 +63,94 @@ d3.json("countries.geojson").then(function(geoData){
 
     //let pixelvalue = projection([longitude,latitude]);
 
-    viz.selectAll(".circles").data(geoData.features).enter()
-      .append("circle")
-      .attr("cx", function(d,i){
-        let correspondingDataPoint = incomingData.find(function(datapoint){
-          if (datapoint.country == d.properties.name){
-            return true
-          }else{
-            return false;
-          }
-        })
-        if (correspondingDataPoint != undefined){
-          longitude = Number(correspondingDataPoint.longitude);
-          lon = projection([longitude,0]);
-        }
-        console.log(lon[0]);
-        return lon[0];
-      })
-      .attr("cy",function(d,i){
-        let correspondingDataPoint = incomingData.find(function(datapoint){
-          if (datapoint.country == d.properties.name){
-            return true
-          }else{
-            return false;
-          }
-        })
-        if (correspondingDataPoint != undefined){
-          latitude = Number(correspondingDataPoint.latitude);
-          lat = projection([0,latitude])
-        }
-        console.log(lat[1]);
-        return lat[1];
-      })
-      .attr("r",3)
-      .attr("fill","red")
-    ;
+    // elementsForPage = viz.selectAll(".circle").data(geoData.features);
+    // enteringElements = elementsForPage.enter();
+    // elementsForPage.transition().duration(500).attr("transform",getLocation);
+    //
+    // elementsForPage.select("circle")
+    //   .append("circle")
+    //   .transition()
+    //   .attr("cx", 0)
+    //   .attr("cy", 0)
+    //   .attr("r",3)
+    //   .attr("fill","red")
+    // ;
 
 
-  })
+
+    dots = viz.selectAll(".datapoint").data(geoData.features).enter()
+        .append("circle")
+          .attr("cx", 0)
+          .attr("cy", 0)
+          .attr("r",3)
+          .attr("fill","red")
+        ;
+
+    //exitingElements = dots.exit().remove();
+
+    dots.transition().attr("transform",getLocation);
+
+    // dots.selectAll("circles").data(geoData.features)
+    //   .transition()
+    //   .attr("fill","blue")
+    // ;
+
+    function getLocation(d,i){
+      let correspondingDataPoint = incomingData.find(function(datapoint){
+        if (datapoint.country == d.properties.name){
+          return true
+        }else{
+          return false;
+        }
+      })
+      if (correspondingDataPoint != undefined){
+        longitude = Number(correspondingDataPoint.longitude);
+        lon = projection([longitude,0]);
+      }
+      console.log(lon[0]);
+
+      if (correspondingDataPoint != undefined){
+        latitude = Number(correspondingDataPoint.latitude);
+        lat = projection([0,latitude]);
+      }
+      console.log(lat[1]);
+      return "translate(" + lon[0] + "," + lat[1] + ")";
+      }
+    })
+
+    // function xLocation(d,i){
+    //   let correspondingDataPoint = incomingData.find(function(datapoint){
+    //     if (datapoint.country == d.properties.name){
+    //       return true
+    //     }else{
+    //       return false;
+    //     }
+    //   })
+    //   if (correspondingDataPoint != undefined){
+    //     longitude = Number(correspondingDataPoint.longitude);
+    //     lon = projection([longitude,0]);
+    //   }
+    //   console.log(lon[0]);
+    //   return lon[0];
+    // }
+
+  //   function yLocation(d,i){
+  //     let correspondingDataPoint = incomingData.find(function(datapoint){
+  //       if (datapoint.country == d.properties.name){
+  //         return true
+  //       }else{
+  //         return false;
+  //       }
+  //     })
+  //     if (correspondingDataPoint != undefined){
+  //       latitude = Number(correspondingDataPoint.latitude);
+  //       lat = projection([0,latitude]);
+  //     }
+  //     console.log(lat[1]);
+  //     return lat[1];
+  //   }
+  //
+  // })
 
 
 
