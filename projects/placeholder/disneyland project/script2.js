@@ -26,7 +26,7 @@ function gotData(incomingData){
   // ;
 
   group1.append("image")
-    .attr("xlink:href","1.jpg")
+    .attr("xlink:href","2.jpg")
     .attr("x",0)
     .attr("y",0)
     .attr("width",800)
