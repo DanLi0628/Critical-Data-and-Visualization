@@ -18,18 +18,18 @@ viz.append("svg:image")
   .attr("height",h-50)
 ;
 
-
 d3.json("data.json").then(gotData);
 
 function gotData(incomingData){
   console.log(incomingData);
 
-  let dwarfs = [], xDwarf = 970-1100, yDwarf = 230-1000;
-  let racer = [], xRacer = 340-1100, yRacer = 330-1000;
-  let tron = [], xTron = 280-1100, yTron = 780-1000;
-  let pirates = [], xPirates = 1290-1100, yPirates = 380-1000;
-  let rapids = [], xRapids = 1060-1100, yRapids = 580-1000;
-  let horizon = [], xHorizon = 1300-1100, yHorizon = 580-1000;
+  let x = 3/5*w, y = 4/5*h;
+  let dwarfs = [], xDwarf = 1/2*w-x, yDwarf = 1/5*h-y;
+  let racer = [], xRacer = 1/6*w-x, yRacer = 1/3*h-y;
+  let tron = [], xTron = 1/8*w-x, yTron = 2/3*h-y;
+  let pirates = [], xPirates = 3/4*w-x, yPirates = 1/3*h-y;
+  let rapids = [], xRapids = 3/5*w-x, yRapids = 1/2*h-y;
+  let horizon = [], xHorizon = 3/4*w-x, yHorizon = 1/2*h-y;
   let temperature = [];
   let weather = [];
   let festival = [];
@@ -54,25 +54,34 @@ function gotData(incomingData){
         ;
   enteringElements1.append("svg:image")
     .attr("xlink:href","icons/1.png")
-    .attr("x",1050)
-    .attr("y",1000)
+    .attr("x",x)
+    .attr("y",y)
     .attr("width",50)
     .attr("height",50)
   ;
+
+ a1 = -1/8*w, b1 = - 1/7*h, c1 = - 1/4*h, d1 = - 1/10*w, e1 = - 1/3*h, f1 = - 1/2*h;
+
   enteringElements1.transition()
+  .ease(d3.easeLinear)
       .duration(1000)
-      .attr("transform", "translate(-220,-240)")
+      .attr("transform", "translate(" + a1 + "," + b1 + ")")
       .transition()
+      .ease(d3.easeLinear)
       .duration(1000)
-      .attr("transform", "translate(-200,-460)")
+      .attr("transform", "translate(" + a1 + "," + c1 + ")")
       .transition()
+      .ease(d3.easeLinear)
       .duration(1000)
-      .attr("transform", "translate(-140,-510)")
+      .attr("transform", "translate(" + d1 + "," + e1 + ")")
       .transition()
+      .ease(d3.easeLinear)
       .duration(1000)
-      .attr("transform", "translate(-240,-700)")
+      .attr("transform", "translate(" + a1 + "," + f1 + ")")
       .transition()
+      .ease(d3.easeLinear)
       .attr("transform", "translate(" + xDwarf + "," + yDwarf + ")")
+    ;
 
   let group2 = viz.selectAll(".racer").data(racer);
   let enteringElements2 = group2.enter()
@@ -81,29 +90,148 @@ function gotData(incomingData){
         ;
   enteringElements2.append("svg:image")
     .attr("xlink:href","icons/2.png")
-    .attr("x",1050)
-    .attr("y",1000)
+    .attr("x",x)
+    .attr("y",y)
     .attr("width",50)
     .attr("height",50)
   ;
+
+  a2 = -1/8*w, b2 = - 1/7*h, c2 = - 1/4*h, d2 = - 1/7*w, e2 = - 1/3*h, f2 = - 2/5*w, g2 = -1/3*h;
+
   enteringElements2.transition()
+  .ease(d3.easeLinear)
       .duration(1000)
-      .attr("transform", "translate(-220,-240)")
+      .attr("transform", "translate(" + a2 + "," + b2 + ")")
       .transition()
+      .ease(d3.easeLinear)
       .duration(1000)
-      .attr("transform", "translate(-200,-460)")
+      .attr("transform", "translate(" + a2 + "," + c2 + ")")
       .transition()
+      .ease(d3.easeLinear)
       .duration(1000)
-      .attr("transform", "translate(-350,-550)")
+      .attr("transform", "translate(" + d2 + "," + e2 + ")")
       .transition()
+      .ease(d3.easeLinear)
       .duration(1000)
-      .attr("transform", "translate(-500,-500)")
+      .attr("transform", "translate(" + f2 + "," + g2 + ")")
       .transition()
-      .duration(1000)
-      .attr("transform", "translate(-770,-550)")
-      .transition()
+      .ease(d3.easeLinear)
       .attr("transform", "translate(" + xRacer + "," + yRacer + ")")
+    ;
+
+  let group3 = viz.selectAll(".tron").data(tron);
+  let enteringElements3 = group3.enter()
+        .append("g")
+          .attr("class","tron")
+        ;
+  enteringElements3.append("svg:image")
+    .attr("xlink:href","icons/3.png")
+    .attr("x",x)
+    .attr("y",y)
+    .attr("width",50)
+    .attr("height",50)
+  ;
+
+  a3 = -1/8*w, b3 = - 1/7*h, c3 = - 1/3*h, d3 = - 1/8*w;
+  enteringElements3.transition()
+      .duration(1000)
+      .attr("transform", "translate(" + a3 + "," + b3 + ")")
+      .transition()
+      .duration(1000)
+      .attr("transform", "translate(" + c3 + "," + d3 + ")")
+      .transition()
+      .attr("transform", "translate(" + xTron + "," + yTron + ")")
+    ;
+
+  let group4 = viz.selectAll(".pirates").data(pirates);
+  let enteringElements4 = group4.enter()
+        .append("g")
+          .attr("class","pirates")
+        ;
+  enteringElements4.append("svg:image")
+    .attr("xlink:href","icons/4.png")
+    .attr("x",x)
+    .attr("y",y)
+    .attr("width",50)
+    .attr("height",50)
+  ;
+
+  a4 = -1/8*w, b4 = - 1/7*h, c4 = - 1/4*h, d4 = - 1/10*w, e4 = - 1/3*h, f4 = 1/25*w, g4 = -1/3*h;
+
+  enteringElements4.transition()
+      .duration(1000)
+      .attr("transform", "translate(" + a4 + "," + b4 + ")")
+      .transition()
+      .duration(1000)
+      .attr("transform", "translate(" + a4 + "," + c4 + ")")
+      .transition()
+      .duration(1000)
+      .attr("transform", "translate(" + d4 + "," + e4 + ")")
+      .transition()
+      .duration(1000)
+      .attr("transform", "translate(" + f4 + "," + g4 + ")")
+      .transition()
+      .attr("transform", "translate(" + xPirates + "," + yPirates + ")")
+    ;
 
 
+  let group5 = viz.selectAll(".rapids").data(rapids);
+  let enteringElements5 = group5.enter()
+        .append("g")
+          .attr("class","rapids")
+        ;
+  enteringElements5.append("svg:image")
+    .attr("xlink:href","icons/5.png")
+    .attr("x",x)
+    .attr("y",y)
+    .attr("width",50)
+    .attr("height",50)
+  ;
 
+  a5 = -1/8*w, b5 = - 1/7*h, c5 = - 1/4*h;
+  enteringElements5.transition()
+      .duration(1000)
+      .attr("transform", "translate(" + a5 + "," + b5 + ")")
+      .transition()
+      .duration(1000)
+      .attr("transform", "translate(" + a5 + "," + c5 + ")")
+      .transition()
+      .duration(1000)
+      .attr("transform", "translate(" + xRapids + "," + yRapids + ")")
+    ;
+
+  let group6 = viz.selectAll(".horizon").data(horizon);
+  let enteringElements6 = group6.enter()
+        .append("g")
+          .attr("class","horizon")
+        ;
+  enteringElements6.append("svg:image")
+    .attr("xlink:href","icons/6.png")
+    .attr("x",x)
+    .attr("y",y)
+    .attr("width",50)
+    .attr("height",50)
+  ;
+
+  a6 = -1/8*w, b6 = - 1/7*h, c6 = - 1/4*h, d6 = - 1/10*w, e6 = - 1/3*h, f6 = 1/25*w, g6 = -1/3*h;
+  h6 = 1/20*w; i6 = -1/5*h;
+  enteringElements6.transition()
+      .duration(1000)
+      .attr("transform", "translate(" + a6 + "," + b6 + ")")
+      .transition()
+      .duration(1000)
+      .attr("transform", "translate(" + a6 + "," + c6 + ")")
+      .transition()
+      .duration(1000)
+      .attr("transform", "translate(" + d6 + "," + e6 + ")")
+      .transition()
+      .duration(1000)
+      .attr("transform", "translate(" + f6 + "," + g6 + ")")
+      .transition()
+      .duration(1000)
+      .attr("transform", "translate(" + h6 + "," + i6 + ")")
+      .transition()
+      .duration(1000)
+      .attr("transform", "translate(" + xHorizon + "," + yHorizon + ")")
+    ;
 }
