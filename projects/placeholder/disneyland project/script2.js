@@ -1,6 +1,12 @@
 w = window.innerWidth;
 h = window.innerHeight;
 
+document.addEventListener("mousemove", () => {
+  let mousex = event.clientX; // Gets Mouse X
+  let mousey = event.clientY; // Gets Mouse Y
+  console.log(mousex, mousey); // Prints data
+});
+
 
 let viz = d3.select("#container")
   .append("svg")
@@ -11,11 +17,11 @@ let viz = d3.select("#container")
 ;
 
 viz.append("svg:image")
-  .attr("xlink:href","map.jpg")
+  .attr("xlink:href","map.png")
   .attr("x",0)
   .attr("y",0)
-  .attr("width",w-50)
-  .attr("height",h-50)
+  .attr("width",w)
+  .attr("height",h)
 ;
 
 d3.json("data.json").then(gotData);
@@ -27,9 +33,9 @@ function gotData(incomingData){
   let dwarfs = [], xDwarf = 1/2*w-x, yDwarf = 1/5*h-y;
   let racer = [], xRacer = 1/6*w-x, yRacer = 1/3*h-y;
   let tron = [], xTron = 1/8*w-x, yTron = 2/3*h-y;
-  let pirates = [], xPirates = 3/4*w-x, yPirates = 1/3*h-y;
-  let rapids = [], xRapids = 3/5*w-x, yRapids = 1/2*h-y;
-  let horizon = [], xHorizon = 3/4*w-x, yHorizon = 1/2*h-y;
+  let pirates = [], xPirates = 0.83*w-x, yPirates = 0.34*h-y;
+  let rapids = [], xRapids = 0.7*w-x, yRapids = 0.5*h-y;
+  let horizon = [], xHorizon = 0.83*w-x, yHorizon = 0.59*h-y;
   let temperature = [];
   let weather = [];
   let festival = [];
