@@ -1,20 +1,18 @@
-w = window.innerWidth;
-h = window.innerHeight;
+w = 1200;
+h = 680;
 
-let viz = d3.select("#container")
+var svg = d3.select("div#container")
   .append("svg")
-    .attr("id","viz")
-    .attr("width", w)
-    .attr("height", h)
-    //.style("background-color", "lavender")
+  .attr("preserveAspectRatio", "xMinYMin meet")
+  .attr("viewBox", "0 0 "+w+" "+h)
+  .classed("svg-content", true)
 ;
 
-viz.append("svg:image")
+svg.append("svg:image")
   .attr("xlink:href","disneyland daily attendance cover.png")
   .attr("x",0)
   .attr("y",0)
-  .attr("width",w-50)
-  .attr("height",h-50)
+  .attr("width",w)
 ;
 
 d3.json("data.json").then(gotData);
@@ -25,17 +23,5 @@ function gotData(incomingData){
       .append("g")
         .attr("class","datagroup")
     ;
-
-
-  // group1.append("circle")
-  //   .attr("cx",function (d,i){
-  //     return i + Math.random()*w;
-  //   })
-  //   .attr("cy",function (d,i){
-  //     return i + Math.random()*h;
-  //   })
-  //   .attr("r",10)
-  //   .attr("fill","white")
-  // ;
 
 }
