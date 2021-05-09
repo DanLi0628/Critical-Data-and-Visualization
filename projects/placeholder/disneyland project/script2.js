@@ -28,15 +28,30 @@ basemapGroup.append("svg:image")
   .attr("width",w)
 ;
 
+basemapGroup.append("svg:image")
+  .attr("xlink:href","calendar.png")
+  .attr("x",50)
+  .attr("y",50)
+  .attr("width",100)
+;
+
+basemapGroup.append("svg:image")
+  .attr("xlink:href","thermometer.png")
+  .attr("x",50)
+  .attr("y",180)
+  .attr("width",30)
+;
+
+
+
 d3.json("data.json").then(gotData);
 let currentDay = 0;
 
 function gotData(incomingData){
   data = incomingData;
-  //console.log(data.length);
+  console.log(data);
 
   drawGraph();
-
 
   function drawGraph(){
     let entrances = {
@@ -97,22 +112,16 @@ function gotData(incomingData){
     })
   ;
 
-    console.log("attractionGroups", attractionGroups)
-
     attractionGroups = attractionGroups.merge(enterAttractionGroups)
 
     let visitors = attractionGroups.selectAll(".visitor")
           .data(function(d, i){
             let visitorArray = d3.range(d.wait/10)
-            console.log("d", d)
-            console.log("vistorArray", visitorArray)
             visitorArray = visitorArray.map(function(value){
               return {
                 attraction: d.attraction
               }
             })
-            console.log("vistorArray", visitorArray)
-
             return visitorArray
           })
           ;
@@ -120,6 +129,59 @@ function gotData(incomingData){
 
     let visitorsEnteringGroup = visitors.enter().append("g").attr("class", "visitor");
     let visitorsExitingGroup = visitors.exit()
+
+    let day = data[currentDay].whichDay;
+    basemapGroup.append("rect")
+      .attr("width",94)
+      .attr("height",68)
+      .attr("x", 55)
+      .attr("y", 90)
+      .attr("fill","white")
+    ;
+    basemapGroup.append("text")
+      .text(day)
+      .attr("x", 55)
+      .attr("y", 110)
+      .attr("fill","black")
+    ;
+
+    let dates = data[currentDay].date.replace("T16:00:00.000Z","");
+    basemapGroup.append("text")
+      .text(dates)
+      .attr("x", 54)
+      .attr("y", 140)
+      .attr("fill","black")
+    ;
+
+    let weather = data[currentDay].weather;
+    basemapGroup.append("text")
+      .text(weather)
+      .attr("x", 95)
+      .attr("y", 110)
+      .attr("fill","black")
+    ;
+
+    let temperature=" ";
+
+    if (data[currentDay].temperature>0){
+       temperature = data[currentDay].temperature + "°C";
+    }else{
+        temperature = "N/A"
+    }
+    basemapGroup.append("rect")
+      .attr("width",50)
+      .attr("height",40)
+      .attr("x", 90)
+      .attr("y", 200)
+      .attr("fill","#B9F9CB")
+    ;
+    basemapGroup.append("text")
+      .text(temperature)
+      .attr("x", 97)
+      .attr("y", 225)
+      .attr("fill","black")
+    ;
+
 
 
     visitorsEnteringGroup.append("svg:image")
@@ -179,9 +241,13 @@ function gotData(incomingData){
 
   }
 
+  d3.select("#buttonB").on("click",function(){
+    currentDay = document.getElementById("date").value - 1;
+    drawGraph();
+  })
+
   d3.select("#nextDay").on("click", function(){
     currentDay++;
-    console.log(currentDay);
     if(currentDay>=data.length){
       currentDay=0;
     }
