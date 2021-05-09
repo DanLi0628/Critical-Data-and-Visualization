@@ -132,7 +132,7 @@ function gotData(incomingData){
 
     let day = data[currentDay].whichDay;
     basemapGroup.append("rect")
-      .attr("width",94)
+      .attr("width",90)
       .attr("height",68)
       .attr("x", 55)
       .attr("y", 90)
@@ -150,6 +150,7 @@ function gotData(incomingData){
       .text(dates)
       .attr("x", 54)
       .attr("y", 140)
+      .attr("font-size",15)
       .attr("fill","black")
     ;
 
