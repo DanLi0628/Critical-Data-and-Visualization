@@ -41,8 +41,8 @@ function gotData(incomingData){
   function drawGraph(){
     let entrances = {
       "original":{
-        x : 0.705*w,
-        y : 0.5175*w
+        x : 0.555*w,
+        y : 0.426*w
       },
       "sevenDwarfsMineTrain":{
         x : 0.635*w,
@@ -101,49 +101,75 @@ function gotData(incomingData){
 
     attractionGroups = attractionGroups.merge(enterAttractionGroups)
 
-    let visitors = attractionGroups.selectAll(".visitor").data(function(d, i){
-                                            let visitorArray = d3.range(d.wait/10)
-                                            console.log("d", d)
-                                            console.log("vistorArray", visitorArray)
-                                            visitorArray = visitorArray.map(function(value){
-                                              return {
-                                                attraction: d.attraction
-                                              }
-                                            })
-                                            console.log("vistorArray", visitorArray)
+    let visitors = attractionGroups.selectAll(".visitor")
+          .data(function(d, i){
+            let visitorArray = d3.range(d.wait/10)
+            console.log("d", d)
+            console.log("vistorArray", visitorArray)
+            visitorArray = visitorArray.map(function(value){
+              return {
+                attraction: d.attraction
+              }
+            })
+            console.log("vistorArray", visitorArray)
 
-                                            return visitorArray
-                                          })
-                                          ;
+            return visitorArray
+          })
+          ;
 
 
     let visitorsEnteringGroup = visitors.enter().append("g").attr("class", "visitor");
     let visitorsExitingGroup = visitors.exit()
 
-    // basemapGroup.append("svg:image")
-    //   .attr("xlink:href","map.png")
-    //   .attr("x",0)
-    //   .attr("y",0)
-    //   .attr("width",w)
-    // ;
 
     visitorsEnteringGroup.append("svg:image")
-      .attr("xlink:href", "icons/1.png")
-      .attr("width",20)
-      .attr('x', function(d, i){
-        // console.log(d)
-        return i*20 - 50;
+      .attr("xlink:href", function(){
+        let img = ["icons/1.png","icons/2.png","icons/3.png","icons/4.png","icons/5.png","icons/6.png"]
+        return img[parseInt(Math.random()*6)]
       })
-      .attr('y', -10)
+      .attr("width",20)
+      .attr("x",entrances.original.x)
+      .attr('y',entrances.original.y)
       .transition()
       .duration(1000)
-      .attr('y', 0)
+      .attr('x', function(d, i){
+        let xLocation = i*20 - 50
+        if (i<5){
+          return xLocation
+        }else if (i<10){
+          xLocation = (i-5)*20-50
+          return xLocation
+        }else if (i<15){
+          xLocation = (i-10)*20-50
+          return xLocation
+        }else{
+          xLocation = (i-15)*20-50
+          return xLocation
+        }
+
+      })
+      .attr('y', function(d,i){
+        let yLocation = -25
+        if (i < 5){
+          yLocation = -25
+          return yLocation
+        }else if (i<10){
+          yLocation = -5;
+          return yLocation
+        }else if (i<15){
+          yLocation = 15;
+          return yLocation
+        }else{
+          yLocation = 35;
+          return yLocation
+        }
+      })
     ;
 
     visitorsExitingGroup.transition().duration(1000)
       .attr("transform", function(d, i){
-        let x = i*20 - 50;
-        let y = 100;
+        x = entrances.original.x;
+        y = entrances.original.y;
         return "translate("+x+", "+y+")"
       })
       .remove()
@@ -151,13 +177,7 @@ function gotData(incomingData){
     // Updating Visitors
     visitors.select("visitor").transition().duration(1000).attr("width", 10)
 
-
   }
-
-  function image(){
-
-  }
-
 
   d3.select("#nextDay").on("click", function(){
     currentDay++;
