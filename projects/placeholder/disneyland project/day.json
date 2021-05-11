@@ -1,0 +1,422 @@
+[
+  [{
+    "day": "Mon",
+    "month": 1,
+    "time": 80
+  },
+  {
+    "day": "Mon",
+    "month": 2,
+    "time": 77
+  },
+  {
+    "day": "Mon",
+    "month": 3,
+    "time": 42
+  },
+  {
+    "day": "Mon",
+    "month": 4,
+    "time": 83
+  },
+  {
+    "day": "Mon",
+    "month": 5,
+    "time": 75
+  },
+  {
+    "day": "Mon",
+    "month": 6,
+    "time": 130
+  },
+  {
+    "day": "Mon",
+    "month": 7,
+    "time": 119
+  },
+  {
+    "day": "Mon",
+    "month": 8,
+    "time": 130
+  },
+  {
+    "day": "Mon",
+    "month": 9,
+    "time": 48
+  },
+  {
+    "day": "Mon",
+    "month": 10,
+    "time": 56
+  },
+  {
+    "day": "Mon",
+    "month": 11,
+    "time": 69
+  },
+  {
+    "day": "Mon",
+    "month": 12,
+    "time": 78
+  }],[
+  {
+    "day": "Tue",
+    "month": 1,
+    "time": "49"
+  },
+  {
+    "day": "Tue",
+    "month": 2,
+    "time": "73"
+  },
+  {
+    "day": "Tue",
+    "month": 3,
+    "time": "42"
+  },
+  {
+    "day": "Tue",
+    "month": 4,
+    "time": "71"
+  },
+  {
+    "day": "Tue",
+    "month": 5,
+    "time": "77"
+  },
+  {
+    "day": "Tue",
+    "month": 6,
+    "time": "90"
+  },
+  {
+    "day": "Tue",
+    "month": 7,
+    "time": "96"
+  },
+  {
+    "day": "Tue",
+    "month": 8,
+    "time": "124"
+  },
+  {
+    "day": "Tue",
+    "month": 9,
+    "time": "25"
+  },
+  {
+    "day": "Tue",
+    "month": 10,
+    "time": "34"
+  },
+  {
+    "day": "Tue",
+    "month": 11,
+    "time": "35"
+  },
+  {
+    "day": "Tue",
+    "month": "12",
+    "time": "53"
+  }],[
+  {
+    "day": "Wed",
+    "month": 1,
+    "time": "50"
+  },
+  {
+    "day": "Wed",
+    "month": 2,
+    "time": "65"
+  },
+  {
+    "day": "Wed",
+    "month": 3,
+    "time": "20"
+  },
+  {
+    "day": "Wed",
+    "month": 4,
+    "time": "59"
+  },
+  {
+    "day": "Wed",
+    "month": 5,
+    "time": "66"
+  },
+  {
+    "day": "Wed",
+    "month": 6,
+    "time": "108"
+  },
+  {
+    "day": "Wed",
+    "month": 7,
+    "time": "92"
+  },
+  {
+    "day": "Wed",
+    "month": 8,
+    "time": "113"
+  },
+  {
+    "day": "Wed",
+    "month": 9,
+    "time": "28"
+  },
+  {
+    "day": "Wed",
+    "month": 10,
+    "time": "33"
+  },
+  {
+    "day": "Wed",
+    "month": 11,
+    "time": "27"
+  },
+  {
+    "day": "Wed",
+    "month": "12",
+    "time": "39"
+  }],[
+  {
+    "day": "Thu",
+    "month": 1,
+    "time": "53"
+  },
+  {
+    "day": "Thu",
+    "month": 2,
+    "time": "68"
+  },
+  {
+    "day": "Thu",
+    "month": 3,
+    "time": "22"
+  },
+  {
+    "day": "Thu",
+    "month": 4,
+    "time": "87"
+  },
+  {
+    "day": "Thu",
+    "month": 5,
+    "time": "89"
+  },
+  {
+    "day": "Thu",
+    "month": 6,
+    "time": "114"
+  },
+  {
+    "day": "Thu",
+    "month": 7,
+    "time": "115"
+  },
+  {
+    "day": "Thu",
+    "month": 8,
+    "time": "113"
+  },
+  {
+    "day": "Thu",
+    "month": 9,
+    "time": "30"
+  },
+  {
+    "day": "Thu",
+    "month": 10,
+    "time": "44"
+  },
+  {
+    "day": "Thu",
+    "month": 11,
+    "time": "40"
+  },
+  {
+    "day": "Thu",
+    "month": "12",
+    "time": "29"
+  }],[
+  {
+    "day": "Fri",
+    "month": 1,
+    "time": "53"
+  },
+  {
+    "day": "Fri",
+    "month": 2,
+    "time": "97"
+  },
+  {
+    "day": "Fri",
+    "month": 3,
+    "time": "62"
+  },
+  {
+    "day": "Fri",
+    "month": 4,
+    "time": "117"
+  },
+  {
+    "day": "Fri",
+    "month": 5,
+    "time": "99"
+  },
+  {
+    "day": "Fri",
+    "month": 6,
+    "time": "128"
+  },
+  {
+    "day": "Fri",
+    "month": 7,
+    "time": "106"
+  },
+  {
+    "day": "Fri",
+    "month": 8,
+    "time": "109"
+  },
+  {
+    "day": "Fri",
+    "month": 9,
+    "time": "38"
+  },
+  {
+    "day": "Fri",
+    "month": 10,
+    "time": "72"
+  },
+  {
+    "day": "Fri",
+    "month": 11,
+    "time": "70"
+  },
+  {
+    "day": "Fri",
+    "month": "12",
+    "time": "66"
+  }],[
+  {
+    "day": "Sat",
+    "month": 1,
+    "time": "25"
+  },
+  {
+    "day": "Sat",
+    "month": 2,
+    "time": "72"
+  },
+  {
+    "day": "Sat",
+    "month": 3,
+    "time": "41"
+  },
+  {
+    "day": "Sat",
+    "month": 4,
+    "time": "89"
+  },
+  {
+    "day": "Sat",
+    "month": 5,
+    "time": "67"
+  },
+  {
+    "day": "Sat",
+    "month": 6,
+    "time": "86"
+  },
+  {
+    "day": "Sat",
+    "month": 7,
+    "time": "96"
+  },
+  {
+    "day": "Sat",
+    "month": 8,
+    "time": "91"
+  },
+  {
+    "day": "Sat",
+    "month": 9,
+    "time": "29"
+  },
+  {
+    "day": "Sat",
+    "month": 10,
+    "time": "69"
+  },
+  {
+    "day": "Sat",
+    "month": 11,
+    "time": "48"
+  },
+  {
+    "day": "Sat",
+    "month": "12",
+    "time": "44"
+  }],[
+  {
+    "day": "Sun",
+    "month": 1,
+    "time": "31"
+  },
+  {
+    "day": "Sun",
+    "month": 2,
+    "time": "50"
+  },
+  {
+    "day": "Sun",
+    "month": 3,
+    "time": "27"
+  },
+  {
+    "day": "Sun",
+    "month": 4,
+    "time": "47"
+  },
+  {
+    "day": "Sun",
+    "month": 5,
+    "time": "45"
+  },
+  {
+    "day": "Sun",
+    "month": 6,
+    "time": "49"
+  },
+  {
+    "day": "Sun",
+    "month": 7,
+    "time": "97"
+  },
+  {
+    "day": "Sun",
+    "month": 8,
+    "time": "96"
+  },
+  {
+    "day": "Sun",
+    "month": 9,
+    "time": "34"
+  },
+  {
+    "day": "Sun",
+    "month": 10,
+    "time": "33"
+  },
+  {
+    "day": "Sun",
+    "month": 11,
+    "time": "38"
+  },
+  {
+    "day": "Sun",
+    "month": "12",
+    "time": "25"
+  }]
+]

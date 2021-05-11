@@ -254,5 +254,12 @@ function gotData(incomingData){
     }
     drawGraph();
   })
+  d3.select("#lastDay").on("click", function(){
+    if (currentDay > 0){
+      currentDay--;
+    }
+
+    drawGraph();
+  })
 
 }
