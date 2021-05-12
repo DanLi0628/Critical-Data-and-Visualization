@@ -1,6 +1,8 @@
 ## The Project
 Disneyland Daily Attendance
-Link to my project: [Webpage](https://lindaaali.github.io/CDV-Linda/projects/placeholder/disneyland%20project/index.html) 
+Link to my project: [Webpage](https://lindaaali.github.io/CDV-Linda/projects/placeholder/disneyland%20project/index.html)
+
+
 An animated GIF: ![GIF](https://github.com/LindaaaLi/CDV-Linda/blob/main/projects/placeholder/disneyland%20project/map.GIF)
 
  - 2-3 sentences about the project
