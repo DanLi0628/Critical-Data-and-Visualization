@@ -1,8 +1,8 @@
 ## The Project
- - The project's name
- - A link to the live version of the project
- - An animated GIF of your favorite detail of the visualization
-  - don't try to include every aspect of your project in one GIF, just **a small aspect that you think looks good** and will make people want to visit it (something that moves, e.g. a transition)
+Disneyland Daily Attendance
+Link to my project: https://lindaaali.github.io/CDV-Linda/projects/placeholder/disneyland%20project/index.html
+An animated GIF: map.GIF
+
  - 2-3 sentences about the project
   - written in a style that will make people want to visit it
  - links to the source of the data you used
