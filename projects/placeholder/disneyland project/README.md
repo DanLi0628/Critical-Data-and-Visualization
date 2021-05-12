@@ -8,7 +8,7 @@ An animated GIF:
 Simple intro:
 Every time people go to Disneyland, they complain about the long waiting time. Have you ever thought about what period of the year or which day in a week will attract more people? Have a look at this visualization and better plan your visit!
 
-Link to the original source: [link] (https://zhuanlan.zhihu.com/p/96704334)
+Link to the original source: [link](https://zhuanlan.zhihu.com/p/96704334)
 
 ## The Process
 
