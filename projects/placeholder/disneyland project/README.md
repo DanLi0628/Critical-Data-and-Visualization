@@ -5,10 +5,10 @@ Link to my project: [Webpage](https://lindaaali.github.io/CDV-Linda/projects/pla
 An animated GIF: 
 ![GIF](https://github.com/LindaaaLi/CDV-Linda/blob/main/projects/placeholder/disneyland%20project/map.GIF)
 
- - 2-3 sentences about the project
-  - written in a style that will make people want to visit it
- - links to the source of the data you used
-  - if you compiled the data yourself, describe your methodology
+Simple intro:
+Every time people go to Disneyland, they complain about the long waiting time. Have you ever thought about what period of the year or which day in a week will attract more people? Have a look at this visualization and better plan your visit!
+
+Link to the original source: [link] (https://zhuanlan.zhihu.com/p/96704334)
 
 ## The Process
 
