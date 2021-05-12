@@ -13,7 +13,7 @@
 ## The Process
 
 - Why did you choose to visualize the data in this way?
-- I'm inspired by Marauder's map from Harry Potter and then I determine to use the form of map to visualize the data. Alos, the map form is explict and easy to read. The graph on the third page is inspired by a coding exercise that I did this semester. 
+- I'm inspired by Marauder's map from Harry Potter and then I determine to use the form of map to visualize the data. Also, the map form is explicit and easy to read. The graph on the third page is inspired by a coding exercise that I did this semester (the birth rate graph). 
 
 - Visualization: Many elements are visualized in this project, including temperature, weather, day, date, the waiting time. The problem is that the style of each is not that consistent. Overall, the visualization went well though the coding process was really difficult for me.
 
