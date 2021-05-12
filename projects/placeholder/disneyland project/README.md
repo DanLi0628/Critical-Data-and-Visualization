@@ -15,5 +15,9 @@ Link to the original source: [link](https://zhuanlan.zhihu.com/p/96704334)
 
 - Why did you choose to visualize the data in this way?
 - What can be seen in the visualization? Does it reveal something you didn't expect?
-- Did you make crucial compromises? Which ones?
-- If you had more time, what would you change, improve, add to the project?
+
+
+- Crucial compromises: The disneyland character icons ought to appear by following the map path. However due to the structure of my dataset, I can only either extract all attraction data, or use them as a whole. If I separate the attractions, it would be harder to visualize the data based on "day." If I use the data as a whole, I cannot adjust the path of every icon so they cannot move along the path. For me the path problem is a big compromise, but if I chose the previous approach, the compromise might be even larger. 
+
+
+- Improvements: If I were given more time, I will beautify my project to make it more like a website. Also, the styles of the buttons will be more consistent with the map. There will be more detailed information about the dataset provider aibili wu, more disneyland events and stories. 
